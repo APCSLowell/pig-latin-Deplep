@@ -1,4 +1,4 @@
-import java.io.File;  // Import the File class
+--import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
@@ -41,10 +41,8 @@ public String pigLatin(String sWord) {
   String piece2 = new String(sWord.substring(1, sWord.length()));
   String newString = new String(piece2 + piece1);
   if(findFirstVowel(sWord) <= 0 ) {
-      return "";
+      return sWord + "ay";
     }
     return newString + "ay";
 }
-
-    }
 }//end PigLatin class
