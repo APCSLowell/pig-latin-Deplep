@@ -38,8 +38,16 @@ public int findFirstVowel(String sWord) {
 }
 public String pigLatin(String sWord) {
   String piece1 = new String(sWord.substring(0, 1));
+  String pieceQU = new String(sWord.substring(0, 2));
   String piece2 = new String(sWord.substring(1, sWord.length()));
   String newString = new String(piece2 + piece1);
+  if (piece1.equals("a") || piece1.equals("e") || piece1.equals("i")|| piece1.equals("o")|| piece1.equals("u")){
+    return sWord + "way";
+  }
+  if (pieceQU.equals("qu")){
+    String newQUstring = new String(sWord.substring(2, sWord.length()) + pieceQU + "ay");
+    return newQUstring;
+  }
   if(findFirstVowel(sWord) <= 0 ) {
       return sWord + "ay";
     }
