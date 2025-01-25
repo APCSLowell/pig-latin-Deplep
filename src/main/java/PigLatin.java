@@ -38,6 +38,8 @@ public int findFirstVowel(String sWord) {
 }
 public String pigLatin(String sWord) {
   String piece1 = new String(sWord.substring(0, 1));
+  String pieceCons = new String(sWord.substring(1, 2));
+  String pieceCons2 = new String(sWord.substring(2, sWord.length()));
   String pieceQU = new String(sWord.substring(0, 2));
   String piece2 = new String(sWord.substring(1, sWord.length()));
   String newString = new String(piece2 + piece1);
@@ -48,9 +50,13 @@ public String pigLatin(String sWord) {
     String newQUstring = new String(sWord.substring(2, sWord.length()) + pieceQU + "ay");
     return newQUstring;
   }
-  //if(findFirstVowel(sWord) <= 0 ) {
-      //return sWord + "ay";
-    //}
-    return newString + "ay";
+  if(findFirstVowel(sWord) <= 0 ) {
+      return sWord + "ay";
+    }
+  if(piece1.equals("a") == false && piece1.equals("e") == false && piece1.equals("i") == false && piece1.equals("o") == false && piece1.equals("u") == false
+     && pieceCons.equals("a") == false && pieceCons.equals("e") == false && pieceCons.equals("i") == false && pieceCons.equals("o") == false && pieceCons.equals("u") == false){
+    return pieceCons2 + piece1 + pieceCons + "ay";
+}
+return newString + "ay";
 }
 }//end PigLatin class
