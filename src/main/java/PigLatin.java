@@ -27,6 +27,13 @@ public class PigLatin {
 	        System.out.println(pigLatin(lines[i]));
 	    }
     }
+void setup(){
+  System.out.println(pigLatin("try"));
+  System.out.println(pigLatin("at"));
+  System.out.println(pigLatin("question"));
+  System.out.println(pigLatin("ball"));
+  System.out.println(pigLatin("Child"));
+}
 public int findFirstVowel(String sWord) {
   for (int i = 0; i < sWord.length(); i += 1){
     if(sWord.substring(i, i + 1).equals("a") || sWord.substring(i, i + 1).equals("e") || sWord.substring(i, i + 1).equals("i") || sWord.substring(i, i + 1).equals("o") || sWord.substring(i, i + 1).equals("u") ){
@@ -38,25 +45,25 @@ public int findFirstVowel(String sWord) {
 }
 public String pigLatin(String sWord) {
   String piece1 = new String(sWord.substring(0, 1));
-  String pieceCons = new String(sWord.substring(1, 2));
-  String pieceCons2 = new String(sWord.substring(2, sWord.length()));
   String pieceQU = new String(sWord.substring(0, 2));
   String piece2 = new String(sWord.substring(1, sWord.length()));
   String newString = new String(piece2 + piece1);
+  // if it starts with vowel
   if (piece1.equals("a") || piece1.equals("e") || piece1.equals("i")|| piece1.equals("o")|| piece1.equals("u")){
     return sWord + "way";
   }
+  // if it starts with qu
   if (pieceQU.equals("qu")){
     String newQUstring = new String(sWord.substring(2, sWord.length()) + pieceQU + "ay");
     return newQUstring;
   }
-  if(findFirstVowel(sWord) <= 0 ) {
-      return sWord + "ay";
+  // if it starts with a consonant
+  if(findFirstVowel(sWord) > 0 ) {
+      String consonantCluster = sWord.substring(0, findFirstVowel(sWord)); // Extract cluster
+      String restOfWord = sWord.substring(findFirstVowel(sWord));          // Extract the rest
+      return restOfWord + consonantCluster + "ay";                  // Move cluster to the end
     }
-  if(piece1.equals("a") == false && piece1.equals("e") == false && piece1.equals("i") == false && piece1.equals("o") == false && piece1.equals("u") == false
-     && pieceCons.equals("a") == false && pieceCons.equals("e") == false && pieceCons.equals("i") == false && pieceCons.equals("o") == false && pieceCons.equals("u") == false){
-    return pieceCons2 + piece1 + pieceCons + "ay";
-}
-return newString + "ay";
+ 
+return sWord + "ay";
 }
 }//end PigLatin class
