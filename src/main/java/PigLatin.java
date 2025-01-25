@@ -48,9 +48,9 @@ public String pigLatin(String sWord) {
     String newQUstring = new String(sWord.substring(2, sWord.length()) + pieceQU + "ay");
     return newQUstring;
   }
-  if(findFirstVowel(sWord) <= 0 ) {
-      return sWord + "ay";
-    }
+  //if(findFirstVowel(sWord) <= 0 ) {
+      //return sWord + "ay";
+    //}
     return newString + "ay";
 }
 }//end PigLatin class
